@@ -1,0 +1,35 @@
+<div class="container">
+  <mat-card class="auth-box">
+    <h1>Добавление карточки</h1>
+    <form [formGroup]="createCardForm">
+      <mat-form-field>
+        <input matInput name="name" placeholder="Введите название карточки" [formControl]="name" type="text" required>
+        <mat-error *ngIf="name.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <textarea matInput name="description" placeholder="Введите описание карточки" [formControl]="description" type="text" required></textarea>
+        <mat-error *ngIf="description.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select placeholder="Укажите редкость карточки" [formControl]="rareness" required>
+          <mat-option value="1">Обычная</mat-option>
+          <mat-option value="2">Редкая</mat-option>
+          <mat-option value="3">Очень редкая</mat-option>
+        </mat-select>
+        <mat-error *ngIf="name.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select placeholder="Укажите коллекцию, к которой относится карточка" [formControl]="collection" required>
+          <mat-option value="1">Test collection 1</mat-option>
+          <mat-option value="2">Test collection 2</mat-option>
+        </mat-select>
+        <mat-error *ngIf="name.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <input style="display: none" type="file" (change)="onFileChanged($event)" #fileInput>
+      <button mat-button color="primary" (click)="fileInput.click()">Выберите изображение</button>
+      <button mat-button color="primary" (click)="onUpload()">Загрузить</button> <br>
+      <mat-divider></mat-divider> <br>
+      <button (click)="createCard()" mat-raised-button color="primary" type="submit">Добавить</button>
+    </form>
+  </mat-card>
+</div>

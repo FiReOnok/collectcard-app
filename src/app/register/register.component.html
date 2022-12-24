@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="auth-box">
+    <h1>Регистрация</h1>
+    <form [formGroup]="regForm">
+        <mat-form-field>
+            <input matInput name="login" placeholder="Введите ваш логин" [formControl]="login" type="text" required>
+            <mat-error *ngIf="login.invalid">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+      <mat-form-field>
+        <input matInput name="email" placeholder="Введите ваш email" [formControl]="email" type="email" required>
+        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput name="pass" placeholder="Введите пароль" [formControl]="password" minlength="8" [type]="hide ? 'password' : 'text'" required>
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+        <mat-error *ngIf="password.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <button (click)="registerUser()" mat-raised-button color="primary" type="submit">Регистрация</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="container">
+  <mat-card class="auth-box">
+    <h1>Добавление коллекции</h1>
+    <form [formGroup]="createCollectionForm">
+      <mat-form-field>
+        <input matInput name="title" placeholder="Введите название коллекции" [formControl]="title" type="text" required>
+        <mat-error *ngIf="title.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <textarea matInput name="description" placeholder="Введите описание коллекции" [formControl]="description" type="text" required></textarea>
+        <mat-error *ngIf="description.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <input style="display: none" type="file" (change)="onFileChanged($event)" #fileInput>
+      <button mat-button color="primary" (click)="fileInput.click()">Выберите изображение</button>
+      <button mat-button color="primary" (click)="onUpload()">Загрузить</button> <br>
+      <mat-divider></mat-divider> <br>
+      <button (click)="createCollection()" mat-raised-button color="primary" type="submit">Добавить</button>
+    </form>
+  </mat-card>
+</div>

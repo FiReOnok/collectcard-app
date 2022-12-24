@@ -1,0 +1,9 @@
+.container > .auth-box {
+    flex-basis: 20%;
+}
+.container > .auth-box mat-form-field {
+  width: 100%;
+}
+mat-divider {
+  margin: 8px 0;
+}

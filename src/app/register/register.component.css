@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    /* align-items: stretch; */
+    justify-content: space-around;
+    padding: 10px;
+    }
+  .container > .auth-box {
+    flex-basis: 20%;
+  }
+  .container > .auth-box mat-form-field {
+    width: 100%;
+  }
